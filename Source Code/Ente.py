@@ -3,6 +3,7 @@ from pygame.locals import *
 
 class Ente:
     def avanza(self):
+        self.moving = True
         self.direccion.avanza(self)
     def muevete(self, x, y):
         new_pos_x = self.pos_x + x
@@ -15,15 +16,18 @@ class Ente:
             self.pj_img_rect = self.pj_img_rect.move((0, y))
 
 class Personaje(Ente):
-    pj_img = pygame.image.load('images/goku.png')
-    pj_img = pygame.transform.scale(pj_img, (54, 112))
-    pj_img_rect = pj_img.get_rect()
-    pj_img_rect = pj_img_rect.move((100, 100))
-    
+    img = pygame.image.load('images/goku.png')
+    img_left = pygame.image.load('images/leftarrow.png')
+    img = pygame.transform.scale(img, (54, 112))
+    img_rect = img.get_rect()
+    img_rect = img_rect.move((100, 100))
     def __init__(self, x, y, direccion, dw, dh):
         self.pos_x = x 
-        self.pos_y = y 
+        self.pos_y = y
+        self.current = 3
         self.direccion = direccion
         self.display_width = dw 
         self.display_height = dh 
+        self.moving = False
+        
 
