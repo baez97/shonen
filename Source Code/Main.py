@@ -6,14 +6,13 @@ from Direccion     import *
 from Variables     import *
 
 pygame.init()
-pj = Personaje(10, 100, Derecha(), DISPLAY_WIDTH, DISPLAY_HEIGHT)
+pj = Personaje(10, 100, Direccion(), DISPLAY_WIDTH, DISPLAY_HEIGHT)
 
 # Main loop
 while True:
     DISPLAYSURF.fill(WHITE)
-    DISPLAYSURF.blit(pj.pj_img, pj.pj_img_rect)
+    DISPLAYSURF.blit(pj.currentImg, pj.img_rect)
     pj.avanza()
-    
 
     for event in pygame.event.get():
         if event.type == QUIT:

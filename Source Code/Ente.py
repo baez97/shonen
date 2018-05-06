@@ -19,7 +19,6 @@ class Personaje(Ente):
     img = pygame.image.load('images/goku.png')
     img_left = pygame.image.load('images/leftarrow.png')
     img = pygame.transform.scale(img, (54, 112))
-    current = img
     img_rect = img.get_rect()
     img_rect = img_rect.move((100, 100))
     def __init__(self, x, y, direccion, dw, dh):
@@ -28,6 +27,7 @@ class Personaje(Ente):
         self.direccion = direccion
         self.display_width = dw 
         self.display_height = dh 
+        self.currentImg = self.img
         self.moving = False
         
 
