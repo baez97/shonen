@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pygame, sys
 from pygame.locals import *
-from Personaje     import *
+from Ente          import *
 from Direccion     import *
 from Variables     import *
 
