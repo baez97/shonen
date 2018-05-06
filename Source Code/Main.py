@@ -6,14 +6,14 @@ from Direccion     import *
 from Variables     import *
 
 pygame.init()
-print 'He llegado!'
-pj = Personaje(100, 100, Derecha(), DISPLAY_WIDTH, DISPLAY_HEIGHT)
+pj = Personaje(10, 100, Derecha(), DISPLAY_WIDTH, DISPLAY_HEIGHT)
 
 # Main loop
 while True:
     DISPLAYSURF.fill(WHITE)
+    DISPLAYSURF.blit(pj.pj_img, pj.pj_img_rect)
     pj.avanza()
-    DISPLAYSURF.blit(pj.current, pj.img_rect)
+    
 
     for event in pygame.event.get():
         if event.type == QUIT:
