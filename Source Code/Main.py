@@ -4,9 +4,11 @@ from pygame.locals import *
 from Ente          import *
 from Direccion     import *
 from Variables     import *
+from FactoryMethod import *
 
 pygame.init()
-pj = Personaje(10, 100, Direccion(), DISPLAY_WIDTH, DISPLAY_HEIGHT)
+factoria = FactoryMethod()
+pj = factoria.crearPersonaje(10, 100, factoria.crearDerecha(), DISPLAY_WIDTH, DISPLAY_HEIGHT)
 
 # Main loop
 while True:
