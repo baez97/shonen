@@ -10,7 +10,6 @@ class Ente:
         if new_pos_x + 120 < self.display_width and new_pos_x > 0:
             self.pos_x = new_pos_x
             self.pj_img_rect = self.pj_img_rect.move((x, 0))
-            print 'Condition met'
         if new_pos_y + 100 < self.display_height and new_pos_y > 0:    
             self.pos_y += y
             self.pj_img_rect = self.pj_img_rect.move((0, y))
