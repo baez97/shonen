@@ -29,5 +29,7 @@ class Personaje(Ente):
         self.display_height = dh 
         self.currentImg = self.img
         self.moving = False
+    def saludar():
+        print 'Hola!', self.pos_x, self.pos_y
         
 
