@@ -28,9 +28,23 @@ while True:
             elif event.key == K_RIGHT:
                 pj.estado = MovingRight(pj)
                 pj.avanza()
+            elif event.key == K_UP:
+                pj.estado = MovingUp(pj)
+                pj.avanza()
+            elif event.key == K_DOWN:
+                pj.estado = MovingDown(pj)
+                pj.avanza()
 
         elif event.type == KEYUP:
-            pj.estado = Parado(pj)
+            if pj.estado.isUp() and event.key ==K_UP:
+                pj.estado = Parado(pj)
+            elif pj.estado.isDown() and event.key ==K_DOWN:
+                pj.estado = Parado(pj)
+            elif pj.estado.isRight() and event.key ==K_RIGHT:
+                pj.estado = Parado(pj)
+            elif pj.estado.isLeft() and event.key ==K_LEFT:
+                pj.estado = Parado(pj)
+            
 
     pygame.display.update()
    

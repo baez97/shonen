@@ -4,6 +4,14 @@ from pygame.locals import *
 class Estado:  
     def getImage(self):
         return self.image
+    def isUp(self):
+        return False
+    def isDown(self):
+        return False
+    def isRight(self):
+        return False
+    def isLeft(self):
+        return False
    
 class Parado(Estado):
     def __init__(self, personaje):
@@ -29,11 +37,37 @@ class MovingLeft(Estado):
     def avanza(self, personaje):
         personaje.moveLeft()
 
+    def isLeft(self):
+        return True
+
 class MovingRight(Estado):
     def __init__(self, personaje):
         self.image = pygame.image.load(personaje.imagenes['right'])
 
     def avanza(self, personaje):
         personaje.moveRight()
+    
+    def isRight(self):
+        return True
+
+class MovingUp(Estado):
+    def __init__(self, personaje):
+        self.image = pygame.image.load(personaje.imagenes['up'])
+    
+    def avanza(self, personaje):
+        personaje.moveUp()
+    
+    def isUp(self):
+        return True
+
+class MovingDown(Estado):
+    def __init__(self, personaje):
+        self.image = pygame.image.load(personaje.imagenes['down'])
+
+    def avanza(self, personaje):
+        personaje.moveDown()
+    
+    def isDown(self):
+        return True
     
         
