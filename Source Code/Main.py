@@ -5,16 +5,16 @@ from Ente          import *
 from Direccion     import *
 from Variables     import *
 from FactoryMethod import *
+from Estado import *
 
 pygame.init()
 factoria = FactoryMethod()
-pj = factoria.crearPersonaje(10, 100, factoria.crearDerecha(), DISPLAY_WIDTH, DISPLAY_HEIGHT)
+pj = factoria.crearPersonaje('Andy', 500, 100)
 
 # Main loop
 while True:
     DISPLAYSURF.fill(WHITE)
     pj.pintar()
-    DISPLAYSURF.blit(pj.currentImg, pj.img_rect)
     pj.avanza()
 
     for event in pygame.event.get():
@@ -23,11 +23,14 @@ while True:
             sys.exit()
         elif event.type == KEYDOWN:
             if event.key == K_LEFT:
-                pj.direccion = Izquierda()
+                pj.estado = MovingLeft(pj)
                 pj.avanza()
             elif event.key == K_RIGHT:
-                pj.direccion = Derecha()
+                pj.estado = MovingRight(pj)
                 pj.avanza()
+
+        elif event.type == KEYUP:
+            pj.estado = Parado(pj)
 
     pygame.display.update()
    

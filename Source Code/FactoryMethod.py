@@ -3,8 +3,8 @@ from Ente import *
 from Direccion import *
 
 class FactoryMethod:
-    def crearPersonaje(self, x, y, direccion, dw, dh):
-        return Personaje(x, y, direccion, dw, dh)
+    def crearPersonaje(self, nombre, x, y):
+        return Personaje(nombre, x, y)
 
     def crearDerecha(self):
         return Derecha()
