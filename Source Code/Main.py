@@ -13,6 +13,7 @@ pj = factoria.crearPersonaje(10, 100, factoria.crearDerecha(), DISPLAY_WIDTH, DI
 # Main loop
 while True:
     DISPLAYSURF.fill(WHITE)
+    pj.pintar()
     DISPLAYSURF.blit(pj.currentImg, pj.img_rect)
     pj.avanza()
 
