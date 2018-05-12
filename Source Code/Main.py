@@ -10,13 +10,19 @@ from Estado import *
 pygame.init()
 factoria = FactoryMethod()
 pj = factoria.crearPersonaje('Andy', 500, 100)
+block = pygame.image.load('images/Plain_Block.png')
 
 # Main loop
 while True:
     DISPLAYSURF.fill(WHITE)
+
+    for j in range(0, 560, 50):
+        for i in range(0, 321, 40):
+            DISPLAYSURF.blit(block, (j,i))
+            
     pj.pintar()
     pj.avanza()
-
+    
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
