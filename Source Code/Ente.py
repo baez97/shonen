@@ -42,9 +42,11 @@ class Personaje(Ente):
         if self.pos_x + 5 < 550:
             self.pos_x += 5
             self.rect.move((5, 0))
-        else:
-            self.pos_x += 30
+        elif self.pos_x < 540:
+            self.pos_x += 10
             self.rect.move((30, 0))
+            self.estado = Parado(self)
+        else:
             self.estado = Parado(self)
         self.pintar()
 
@@ -56,7 +58,7 @@ class Personaje(Ente):
             self.estado = Parado(self)
     
     def moveDown(self):
-        if self.pos_y + 5 < 370:
+        if self.pos_y + 5 < 350:
             self.pos_y += 5
             self.rect.move((0, 5))
         else:
