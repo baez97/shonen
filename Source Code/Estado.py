@@ -2,6 +2,8 @@ import pygame
 from pygame.locals import *
 
 class Estado:  
+    def pintar(self, personaje):
+        self.grafico.pintar(personaje)
     def getImage(self):
         return self.image
     def isUp(self):
@@ -16,6 +18,7 @@ class Estado:
 class Parado(Estado):
     def __init__(self, personaje):
         self.image = pygame.image.load(personaje.imagenes['parado'])
+        self.grafico = personaje.getGrafico().parado
 
     def avanza(self, personaje):
         pass

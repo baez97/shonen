@@ -1,35 +1,34 @@
 import pygame
 from pygame.locals import *
+from Variables import *
 
 class Grafico:
-    def __init__(self, personaje):
-        self.parado   = cargar(personaje.imagenes['parado'])
-        self.up       = cargar(personaje.imagenes['up'])
-        self.down     = cargar(personaje.imagenes['down'])
-        self.right    = cargar(personaje.imagenes['right'])
-        self.left     = cargar(personaje.imagenes['left'])
-
-        currentImage  = self.parado
-        self.img_rect = self.currentImage.get_rect()
-        self.img_rect.move((personaje.pos_x, personaje.pos_y))
-
     def cargar(self, ruta):
         return pygame.image.load(ruta)
 
-    def pintar(self):
-        DISPLAYSURF.blit(currentImage, img_rect)
+    def __init__(self, imagenes, x, y):
+        self.parado   = self.cargar(imagenes['parado'])
+        self.up       = self.cargar(imagenes['up'])
+        self.down     = self.cargar(imagenes['down'])
+        self.right    = self.cargar(imagenes['right'])
+        self.left     = self.cargar(imagenes['left'])
+        self.currentImage  = self.parado
+        self.img_rect = self.currentImage.get_rect()
+        self.img_rect.move((x, y))
+
+    def pintar(self, x, y):
+        DISPLAYSURF.blit(self.currentImage, (x,y))
     
-    def cambiarDerecha(self):
+    def cambiarRight(self):
         self.currentImage = self.right
-        # self. = pygame.transform.scale(self.right, (54, 112))
     
-    def cambiarIzquierda(self):
+    def cambiarLeft(self):
         self.currentImage = self.left
 
-    def cambiarAbajo(self):
+    def cambiarDown(self):
         self.currentImage = self.down
 
-    def cambiarArriba(self):
+    def cambiarUp(self):
         self.currentImage = self.up
 
     def cambiarParado(self):

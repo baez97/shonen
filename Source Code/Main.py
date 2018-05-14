@@ -10,7 +10,7 @@ from Estado import *
 pygame.init()
 factoria = FactoryMethod()
 pj = factoria.crearPersonaje('Andy', 500, 100)
-block = pygame.image.load('images/Plain_Block.png')
+block = pygame.image.load('images/grass.png')
 
 # Main loop
 while True:
@@ -29,27 +29,27 @@ while True:
             sys.exit()
         elif event.type == KEYDOWN:
             if event.key == K_LEFT:
-                pj.estado = MovingLeft(pj)
+                pj.cambiarLeft()
                 pj.avanza()
             elif event.key == K_RIGHT:
-                pj.estado = MovingRight(pj)
+                pj.cambiarRight()
                 pj.avanza()
             elif event.key == K_UP:
-                pj.estado = MovingUp(pj)
+                pj.cambiarUp()
                 pj.avanza()
             elif event.key == K_DOWN:
-                pj.estado = MovingDown(pj)
+                pj.cambiarDown()
                 pj.avanza()
 
         elif event.type == KEYUP:
             if pj.estado.isUp() and event.key ==K_UP:
-                pj.estado = Parado(pj)
+                pj.cambiarParado()
             elif pj.estado.isDown() and event.key ==K_DOWN:
-                pj.estado = Parado(pj)
+                pj.cambiarParado()
             elif pj.estado.isRight() and event.key ==K_RIGHT:
-                pj.estado = Parado(pj)
+                pj.cambiarParado()
             elif pj.estado.isLeft() and event.key ==K_LEFT:
-                pj.estado = Parado(pj)
+                pj.cambiarParado()
             
 
     pygame.display.update()
