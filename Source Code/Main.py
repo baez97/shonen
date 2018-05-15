@@ -10,15 +10,17 @@ from Estado import *
 pygame.init()
 factoria = FactoryMethod()
 pj = factoria.crearPersonaje('Andy', 500, 100)
-block = pygame.image.load('images/grass.png')
+block = pygame.image.load('images/block.png')
+grass = pygame.image.load('images/grass.png')
 
 # Main loop
 while True:
     DISPLAYSURF.fill(WHITE)
 
     for j in range(0, 560, 50):
-        for i in range(0, 321, 40):
+        for i in range(40, 321, 40):
             DISPLAYSURF.blit(block, (j,i))
+    DISPLAYSURF.blit(grass, (0, 20))
             
     pj.pintar()
     pj.avanza()
