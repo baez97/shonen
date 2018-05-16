@@ -16,11 +16,19 @@ grass = pygame.image.load('images/grass.png')
 # Main loop
 while True:
     DISPLAYSURF.fill(WHITE)
-
-    for j in range(0, 560, 50):
-        for i in range(40, 321, 40):
-            DISPLAYSURF.blit(block, (j,i))
-    DISPLAYSURF.blit(grass, (0, 20))
+    
+    for x in range(0, 560, 50):
+        for y in range(60, 321, 40):
+            DISPLAYSURF.blit(block, (x,y))
+    for x in range(0, 600, 50):
+        DISPLAYSURF.blit(grass, (x, 0))
+    for y in range(40, 320, 40):
+        DISPLAYSURF.blit(grass, (0, y))
+    for y in range(40, 320, 40):
+        DISPLAYSURF.blit(grass, (550, y))
+    for x in range(0, 600, 50):
+        DISPLAYSURF.blit(grass, (x, 320))
+    
             
     pj.pintar()
     pj.avanza()

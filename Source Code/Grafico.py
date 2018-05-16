@@ -33,3 +33,9 @@ class Grafico:
 
     def cambiarParado(self):
         self.currentImage = self.parado
+
+class TileGrafico(Grafico):
+    def __init__(self, imagen, x, y):
+        self.currentImage   = self.cargar(imagen)
+        self.img_rect = self.currentImage.get_rect()
+        self.img_rect.move((x, y))
